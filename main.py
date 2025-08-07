@@ -48,8 +48,8 @@ async def on_message(message):
 
 
 @bot.tree.command(name="hello",description="Hello-es you")
-async def slash_command(interaction:discord.Interaction):
-    await interaction.response.send_message(f"Sup mate?? It's cool to have you here, {interaction.user.mention}.")
+async def slash_command(interaction:discord.Interaction, user:discord.Member):
+    await interaction.response.send_message(f"Sup mate?? It's cool to have you here, {user.mention}.")
 
 @bot.tree.command(name="convert",description="Convert your money")
 async def convert(interaction: discord.Interaction, amount: int, from_unit: str, to_unit: str):
