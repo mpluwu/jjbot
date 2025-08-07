@@ -12,11 +12,14 @@ intents = discord.Intents.default()
 intents.message_content=True
 intents.members=True
 
-bot = commands.Bot(command_prefix='/', intents=intents)
+
+#bot = commands.Bot(command_prefix='/', intents=intents)
+bot=commands.Bot("/", intents=intents)
 
 @bot.event
 async def on_ready():
     print(f"yoo what's good, mate? {bot.user.name}")
+    await bot.tree.sync()
 
 @bot.event
 async def on_member_join(member):
@@ -32,7 +35,7 @@ async def on_member_join(member):
 async def on_message(message):
     if message.author == bot.user:
         return
-    if "JayJay" in message.content.lower():
+    if "jayjay" in message.content.lower():
         await message.channel.send("Damian, is that you??? I've missed you...")
     if "mr.stabby" in message.content.lower():
         await message.channel.send("Dami doesn't like that nick >:c")
@@ -44,26 +47,26 @@ async def on_message(message):
 #MESSAGE EVENTS END
 
 
-@bot.command()
-async def hello(ctx):
-    await ctx.send(f"Sup mate?? It's cool to have you here, {ctx.author.mention}.")
+@bot.tree.command(name="hello",description="Hello-es you")
+async def slash_command(interaction:discord.Interaction):
+    await interaction.response.send_message(f"Sup mate?? It's cool to have you here, {interaction.user.mention}.")
 
-@bot.command()
-async def convert(ctx, amount: int, from_unit: str, to_unit:str):
+@bot.tree.command(name="convert",description="Convert your money")
+async def convert(interaction: discord.Interaction, amount: int, from_unit: str, to_unit: str):
     conversion_rates = {
-        'usd' :1.0,
-        'azn' : 1.7,
-        'eur':0.86
+        'usd': 1.0,
+        'azn': 1.7,
+        'eur': 0.86
     }
-    if from_unit.lower() not in conversion_rates or to_unit.lower()not in conversion_rates:
-        await ctx.send("Erm, could you take a look at the units again??")
+    if from_unit.lower() not in conversion_rates or to_unit.lower() not in conversion_rates:
+        await interaction.response.send_message("Erm, could you take a look at the units again??")
         return
-    converted_amount = amount*(conversion_rates[to_unit.lower()] / conversion_rates[from_unit.lower()])
-    await ctx.send(f"{amount} {from_unit.upper()} is equal to {converted_amount} {to_unit.upper()}.")
+    converted_amount = amount * (conversion_rates[to_unit.lower()] / conversion_rates[from_unit.lower()])
+    await interaction.response.send_message(f"{amount} {from_unit.upper()} is equal to {converted_amount} {to_unit.upper()}.")
 
-@bot.command()
-async def currency(ctx):
-    await ctx.send("USD (usd), AZN (azn), EURO (eur)")
+@bot.tree.command(name="currency", description="Get a list of available currency units")
+async def currency(interaction: discord.Interaction):
+    await interaction.response.send_message("USD (usd), AZN (azn), EURO (eur)")
 
 
 
