@@ -8,4 +8,4 @@ This is a Discord bot I created based on my OC Jeyhun :3 Since he is a bank work
 - React to some keywords (which is based on his lore)
 >Keep in mind that this is still a work in progress!!!
 ## 💸More info
-![Jeyhun's 1st appearence](jay1.jpeg)
+![Jeyhun's 1st appearence](jay1.jpg)
