@@ -4,6 +4,23 @@ import logging
 from dotenv import load_dotenv
 import os
 
+#######################
+
+import requests
+
+
+# Where USD is the base currency you want to use
+url = 'https://v6.exchangerate-api.com/v6/593f8bebf6f46f51ff3cb380/latest/USD'
+
+# Making our request
+response = requests.get(url)
+data = response.json()
+
+# Your JSON object
+
+#########################
+
+
 load_dotenv()
 token = os.getenv('DISCORD_TOKEN')
 
@@ -53,20 +70,16 @@ async def slash_command(interaction:discord.Interaction, user:discord.Member):
 
 @bot.tree.command(name="convert",description="Convert your money")
 async def convert(interaction: discord.Interaction, amount: int, from_unit: str, to_unit: str):
-    conversion_rates = {
-        'usd': 1.0,
-        'azn': 1.7,
-        'eur': 0.86
-    }
-    if from_unit.lower() not in conversion_rates or to_unit.lower() not in conversion_rates:
+    conversion_rates = data.get('conversion_rates',{})
+    if from_unit.upper() not in conversion_rates or to_unit.upper() not in conversion_rates:
         await interaction.response.send_message("Erm, could you take a look at the units again??")
         return
-    converted_amount = amount * (conversion_rates[to_unit.lower()] / conversion_rates[from_unit.lower()])
+    converted_amount = amount * (conversion_rates[to_unit.upper()] / conversion_rates[from_unit.upper()])
     await interaction.response.send_message(f"{amount} {from_unit.upper()} is equal to {converted_amount} {to_unit.upper()}.")
 
 @bot.tree.command(name="currency", description="Get a list of available currency units")
 async def currency(interaction: discord.Interaction):
-    await interaction.response.send_message("USD (usd), AZN (azn), EURO (eur)")
+    await interaction.response.send_message(data.get('conversion_rates',{}).keys(), ephemeral=True)
 
 
 
