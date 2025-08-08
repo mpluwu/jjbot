@@ -64,6 +64,15 @@ async def on_message(message):
 #MESSAGE EVENTS END
 
 
+############################helpppppppppppppppppppppppppppppp
+
+@bot.tree.command(name="help",description="Helps you with commands")
+async def slash_command(interaction:discord.Interaction):
+    await interaction.response.send_message("Hi and thanks for using me! Here are the commands you can use: \n/hello - Greet any member\n/convert - Convert currency\n/currency - Check if you can convert between two currencies \n\n*STILL IN DEVELOPMENT!!!*")
+
+#############################helppppppppppppppppppppppppppppppppp
+
+
 @bot.tree.command(name="hello",description="Hello-es you")
 async def slash_command(interaction:discord.Interaction, user:discord.Member):
     await interaction.response.send_message(f"Sup mate?? It's cool to have you here, {user.mention}.")
@@ -78,9 +87,13 @@ async def convert(interaction: discord.Interaction, amount: int, from_unit: str,
     await interaction.response.send_message(f"{amount} {from_unit.upper()} is equal to {converted_amount} {to_unit.upper()}.")
 
 @bot.tree.command(name="currency", description="Get a list of available currency units")
-async def currency(interaction: discord.Interaction):
-    await interaction.response.send_message(data.get('conversion_rates',{}).keys(), ephemeral=True)
-
+async def currency(interaction: discord.Interaction, from_unit: str, to_unit: str):
+    conversion_rates = data.get('conversion_rates',{})
+    if from_unit.upper() not in conversion_rates or to_unit.upper() not in conversion_rates:
+        await interaction.response.send_message("Erm, could you take a look at the units again??")
+        return
+    else:
+        await interaction.response.send_message(f"Yes, you can convert from {from_unit.upper()} to {to_unit.upper()}.")
 
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
