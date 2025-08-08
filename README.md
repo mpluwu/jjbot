@@ -1,4 +1,4 @@
-# JJ bot 
+# ★¸.•☆•.¸★ JJ bot ★⡀.•☆•.★
 ## 💸General
 This is a Discord bot I created based on my OC Jeyhun :3 Since he is a bank worker, his bot can help you to convert currencies!
 ## 💸All functionalities
