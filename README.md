@@ -10,4 +10,5 @@ This is a Discord bot I created based on my OC Jeyhun :3 Since he is a bank work
 ## 💸More info
 - This bot is created in Python
 - For the currency API: [ExchangeRate-API](https://www.exchangerate-api.com/)
+#
 ![Jeyhun's 1st appearence](jay1.jpg)
