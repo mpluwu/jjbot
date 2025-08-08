@@ -68,7 +68,7 @@ async def on_message(message):
 
 @bot.tree.command(name="help",description="Helps you with commands")
 async def slash_command(interaction:discord.Interaction):
-    await interaction.response.send_message("Hi and thanks for using me! Here are the commands you can use: \n/hello - Greet any member\n/convert - Convert currency\n/currency - Check if you can convert between two currencies \n\n*STILL IN DEVELOPMENT!!!*")
+    await interaction.response.send_message("Hi and thanks for using me! Here are the commands you can use: \n\n**/hello** - Greet any member\n**/convert** - Convert currency\n**/currency** - Check if you can convert between two currencies \n\n*STILL IN DEVELOPMENT!!!*")
 
 #############################helppppppppppppppppppppppppppppppppp
 
