@@ -75,7 +75,7 @@ async def on_message(message):
 @bot.tree.command(name="help",description="Helps you with commands")
 async def slash_command(interaction:discord.Interaction):
     await interaction.channel.send(file=discord.File('hey.jpg'))
-    await interaction.response.send_message("Hi and thanks for using me! Here are the commands you can use: \n\n**/hello** - Greet any member\n**/convert** - Convert currency\n**/currency** - Check if you can convert between two currencies\n**/intro **- Introduction of the bot\n**poem{1-5}** - Poem pieces\n\n*STILL IN DEVELOPMENT!!!*")
+    await interaction.response.send_message("Hi and thanks for using me! Here are the commands you can use: \n\n**/hello** - Greet any member\n**/convert** - Convert currency\n**/currency** - Check if you can convert between two currencies\n**/intro **- Introduction of the bot\n**/poem{1-5}** - Poem pieces\n\n*STILL IN DEVELOPMENT!!!*")
 
 #############################helppppppppppppppppppppppppppppppppp
 
@@ -127,4 +127,5 @@ async def currency(interaction: discord.Interaction, from_unit: str, to_unit: st
 
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
+
 
