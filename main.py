@@ -58,6 +58,12 @@ async def on_message(message):
         await message.channel.send("Dami doesn't like that nick >:c")
     if "damian" in message.content.lower():
         await message.channel.send("he hasn't contacted me for years now... I hope he is ok")
+    if "margarett" in message.content.lower():
+        await message.channel.send("never liked that brat...")
+    if "cynthia" in message.content.lower():
+        await message.channel.send("only if she didn't meet her...")
+    if "phaeton" in message.content.lower():
+        await message.channel.send("hey, that's the title of my arc :D")
     await bot.process_commands(message)
 
 
@@ -69,14 +75,37 @@ async def on_message(message):
 @bot.tree.command(name="help",description="Helps you with commands")
 async def slash_command(interaction:discord.Interaction):
     await interaction.channel.send(file=discord.File('hey.jpg'))
-    await interaction.response.send_message("Hi and thanks for using me! Here are the commands you can use: \n\n**/hello** - Greet any member\n**/convert** - Convert currency\n**/currency** - Check if you can convert between two currencies \n\n*STILL IN DEVELOPMENT!!!*")
+    await interaction.response.send_message("Hi and thanks for using me! Here are the commands you can use: \n\n**/hello** - Greet any member\n**/convert** - Convert currency\n**/currency** - Check if you can convert between two currencies\n**/intro **- Introduction of the bot\n**poem{1-5}** - Poem pieces\n\n*STILL IN DEVELOPMENT!!!*")
 
 #############################helppppppppppppppppppppppppppppppppp
 
+@bot.tree.command(name="poem1",description="Poem pieces")
+async def slash_command(interaction:discord.Interaction):
+    await interaction.response.send_message("*Look straight into my eyes, darling,\nI need a soul to bury my corpse in\nLook straight into my handiworks, dear,\nCan’t my consciousness amuse you?*")
 
+@bot.tree.command(name="poem2",description="Poem pieces")
+async def slash_command(interaction:discord.Interaction):
+    await interaction.response.send_message("*Don’t stray away even for a bit,\nI’m dying for foundation\nFoundation of my insides\nTurning into tons of spiders\n*")
+
+@bot.tree.command(name="poem3",description="Poem pieces")
+async def slash_command(interaction:discord.Interaction):
+    await interaction.response.send_message("*Crawling around, walking around,\nI feel them walking on my veins\nPlease, darling, save me,\nSave me from my own self\n*")
+
+@bot.tree.command(name="poem4",description="Poem pieces")
+async def slash_command(interaction:discord.Interaction):
+    await interaction.response.send_message("*The eyes pierced on me,\nCan only tell me this:\n“You lived only for yourself,\nNow these are your final moments, mere human”\n*")
+    
+@bot.tree.command(name="poem5",description="Poem pieces")
+async def slash_command(interaction:discord.Interaction):
+    await interaction.response.send_message("*Please, darling,\nThe only thing\nThat I sacrifice my sanity for\nHas always been you,\nMy sister,\nIf you ever come back,\nDon’t you ever dare leave this venomous organism of mine to stay untouched.*")
+
+@bot.tree.command(name="intro",description="Introduction of himself")
+async def slash_command(interaction:discord.Interaction):
+    await interaction.response.send_message("Hi, I'm Jeyhun and I was created by @tspmodamn on Discord. I used to work in a bank company, but because of the civil war, I escaped the real world and now I'm connected thanks to the Internet. If you see Damian, please, just say my name.")
+    
 @bot.tree.command(name="hello",description="Hello-es you")
-async def slash_command(interaction:discord.Interaction, user:discord.Member):
-    await interaction.response.send_message(f"Sup mate?? It's cool to have you here, {user.mention}.")
+async def slash_command(interaction:discord.Interaction):
+    await interaction.response.send_message(f"Sup mate?? It's cool to have you here.")
 
 @bot.tree.command(name="convert",description="Convert your money")
 async def convert(interaction: discord.Interaction, amount: int, from_unit: str, to_unit: str):
