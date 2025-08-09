@@ -40,7 +40,7 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
-    await member.send(f"It's great to see you here, sup {member.name}?")
+    await member.send(f"It's great to have you here, {member.name}.")
 
 
 
@@ -104,8 +104,8 @@ async def slash_command(interaction:discord.Interaction):
     await interaction.response.send_message("Hi, I'm Jeyhun and I was created by @tspmodamn on Discord. I used to work in a bank company, but because of the civil war, I escaped the real world and now I'm connected thanks to the Internet. If you see Damian, please, just say my name.")
     
 @bot.tree.command(name="hello",description="Hello-es you")
-async def slash_command(interaction:discord.Interaction):
-    await interaction.response.send_message(f"Sup mate?? It's cool to have you here.")
+async def slash_command(interaction:discord.Interaction,mention:discord.Member):
+    await interaction.response.send_message(f"Sup mate?? Someone wanted to greet you, {mention.mention}.")
 
 @bot.tree.command(name="convert",description="Convert your money")
 async def convert(interaction: discord.Interaction, amount: int, from_unit: str, to_unit: str):
