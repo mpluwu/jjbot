@@ -85,15 +85,15 @@ async def slash_command(interaction:discord.Interaction):
 
 @bot.tree.command(name="poem2",description="Poem pieces")
 async def slash_command(interaction:discord.Interaction):
-    await interaction.response.send_message("*Don’t stray away even for a bit,\nI’m dying for foundation\nFoundation of my insides\nTurning into tons of spiders\n*")
+    await interaction.response.send_message("*Don’t stray away even for a bit,\nI’m dying for foundation\nFoundation of my insides\nTurning into tons of spiders*")
 
 @bot.tree.command(name="poem3",description="Poem pieces")
 async def slash_command(interaction:discord.Interaction):
-    await interaction.response.send_message("*Crawling around, walking around,\nI feel them walking on my veins\nPlease, darling, save me,\nSave me from my own self\n*")
+    await interaction.response.send_message("*Crawling around, walking around,\nI feel them walking on my veins\nPlease, darling, save me,\nSave me from my own self*")
 
 @bot.tree.command(name="poem4",description="Poem pieces")
 async def slash_command(interaction:discord.Interaction):
-    await interaction.response.send_message("*The eyes pierced on me,\nCan only tell me this:\n“You lived only for yourself,\nNow these are your final moments, mere human”\n*")
+    await interaction.response.send_message("*The eyes pierced on me,\nCan only tell me this:\n“You lived only for yourself,\nNow these are your final moments, mere human”*")
     
 @bot.tree.command(name="poem5",description="Poem pieces")
 async def slash_command(interaction:discord.Interaction):
@@ -127,3 +127,4 @@ async def currency(interaction: discord.Interaction, from_unit: str, to_unit: st
 
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
+
