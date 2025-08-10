@@ -108,7 +108,7 @@ async def slash_command(interaction:discord.Interaction,mention:discord.Member):
     await interaction.response.send_message(f"Sup mate?? Someone wanted to greet you, {mention.mention}.")
 
 @bot.tree.command(name="convert",description="Convert your money")
-async def convert(interaction: discord.Interaction, amount: int, from_unit: str, to_unit: str):
+async def convert(interaction: discord.Interaction, amount: float, from_unit: str, to_unit: str):
     conversion_rates = data.get('conversion_rates',{})
     if from_unit.upper() not in conversion_rates or to_unit.upper() not in conversion_rates:
         await interaction.response.send_message("Erm, could you take a look at the units again??")
@@ -127,5 +127,6 @@ async def currency(interaction: discord.Interaction, from_unit: str, to_unit: st
 
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
+
 
 
