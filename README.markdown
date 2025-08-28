@@ -1,6 +1,6 @@
 # ★¸.•☆•.¸★ JJ bot ★⡀.•☆•.★
 
-![Zigloo CI](https://github.com/alyxshang/zigloo/actions/workflows/deno.yml/badge.svg)
+![JJBot CI](https://github.com/mpluwu/jjbot/actions/workflows/docker.yml/badge.svg)
 
 ***This is a Discord bot, for my OC. :man_dancing:***
 
