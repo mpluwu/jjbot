@@ -101,7 +101,7 @@ async def slash_command(interaction:discord.Interaction):
 
 @bot.tree.command(name="intro",description="Introduction of himself")
 async def slash_command(interaction:discord.Interaction):
-    await interaction.response.send_message("Hi, I'm Jeyhun and I was created by @tspmodamn on Discord. I used to work in a bank company, but because of the civil war, I escaped the real world and now I'm connected thanks to the Internet. If you see Damian, please, just say my name.")
+    await interaction.response.send_message("Hi, I'm Jeyhun and I was created by @tspmodamn on Discord & Instagram. I used to work in a bank company, but because of the civil war, I escaped the real world and now I'm connected thanks to the Internet. If you see Damian, please, just say my name.")
     
 @bot.tree.command(name="hello",description="Hello-es you")
 async def slash_command(interaction:discord.Interaction,mention:discord.Member):
@@ -127,6 +127,5 @@ async def currency(interaction: discord.Interaction, from_unit: str, to_unit: st
 
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
-
 
 
