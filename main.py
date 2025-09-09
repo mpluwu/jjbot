@@ -75,7 +75,7 @@ async def on_message(message):
 @bot.tree.command(name="help",description="Helps you with commands")
 async def slash_command(interaction:discord.Interaction):
     await interaction.channel.send(file=discord.File('hey.jpg'))
-    await interaction.response.send_message("Hi and thanks for using me! Here are the commands you can use: \n\n**/hello** - Greet any member\n**/convert** - Convert currency\n**/currency** - Check if you can convert between two currencies\n**/intro **- Introduction of the bot\n**/poem{1-5}** - Poem pieces\n\n*STILL IN DEVELOPMENT!!!*")
+    await interaction.response.send_message("Hi and thanks for using me! Here are the commands you can use: \n\n**/hello** - Greet any member\n**/bai** - Say goodbye to any member\n**/convert** - Convert currency\n**/currency** - Check if you can convert between two currencies\n**/intro **- Introduction of the bot\n**/poem{1-5}** - Poem pieces\n\n*STILL IN DEVELOPMENT!!!*")
 
 #############################helppppppppppppppppppppppppppppppppp
 
@@ -106,6 +106,10 @@ async def slash_command(interaction:discord.Interaction):
 @bot.tree.command(name="hello",description="Hello-es you")
 async def slash_command(interaction:discord.Interaction,mention:discord.Member):
     await interaction.response.send_message(f"Sup mate?? Someone wanted to greet you, {mention.mention}.")
+
+@bot.tree.command(name="bai",description="Good bye-es you")
+async def slash_command(interaction:discord.Interaction,mention:discord.Member):
+    await interaction.response.send_message(f"Have a good day, let's see you again, {mention.mention}.")
 
 @bot.tree.command(name="convert",description="Convert your money")
 async def convert(interaction: discord.Interaction, amount: float, from_unit: str, to_unit: str):
