@@ -3,6 +3,7 @@ from discord.ext import commands
 import logging
 from dotenv import load_dotenv
 import os
+import random
 
 #######################
 
@@ -101,7 +102,7 @@ async def slash_command(interaction:discord.Interaction):
 
 @bot.tree.command(name="intro",description="Introduction of himself")
 async def slash_command(interaction:discord.Interaction):
-    await interaction.response.send_message("Hi, I'm Jeyhun and I was created by @tspmodamn on Discord & Instagram. I used to work in a bank company, but because of the civil war, I escaped the real world and now I'm connected thanks to the Internet. If you see Damian, please, just say my name.")
+    await interaction.response.send_message("Hi, I'm Jeyhun and I was created by @tspmodamn on Discord. I used to work in a bank company, but because of the civil war, I escaped the real world and now I'm connected thanks to the Internet. If you see Damian, please, just say my name.")
     
 @bot.tree.command(name="hello",description="Hello-es you")
 async def slash_command(interaction:discord.Interaction,mention:discord.Member):
@@ -128,7 +129,26 @@ async def currency(interaction: discord.Interaction, from_unit: str, to_unit: st
         return
     else:
         await interaction.response.send_message(f"Yes, you can convert from {from_unit.upper()} to {to_unit.upper()}.")
-
+        
+@bot.tree.command(name="rps", description="Play rock paper scissors")
+async def rps(interaction: discord.Interaction, choose: str):
+    choices = ['rock', 'paper', 'scissors']
+    user_choice = choose.lower()
+    if user_choice not in choices:
+        await interaction.response.send_message("Please choose 'rock', 'paper', or 'scissors'.")
+    bot_choice = random.choice(choices)
+    await interaction.response.send_message(f"You chose: {user_choice.capitalize()}\nI chose: {bot_choice.capitalize()}")
+    if user_choice == bot_choice:
+        await interaction.response.send_message("It's a tie!")
+        return
+    elif (user_choice == 'rock' and bot_choice == 'scissors') or \
+         (user_choice == 'paper' and bot_choice == 'rock') or \
+         (user_choice == 'scissors' and bot_choice == 'paper'):
+        await interaction.response.send_message("You win! Nice one dude :/")
+        return
+    else:
+        await interaction.response.send_message("I WIN!!!! MUHAHAHAHAHA!!!")
+        return
 
 bot.run(token, log_handler=handler, log_level=logging.DEBUG)
 
